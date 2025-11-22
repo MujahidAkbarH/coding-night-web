@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Social Connect</title>
+    <link rel="stylesheet" href="./style.css">
+   
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        🌓
+    </button>
+
+    <div class="container">
+        <!-- Left Section: Visual/Branding -->
+        <div class="visual-section">
+            <div class="brand-card">
+                <div class="logo">Social Connect</div>
+                <div class="welcome-text">Join the community</div>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">👥</div>
+                        <div class="feature-text">Connect with friends and family</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📸</div>
+                        <div class="feature-text">Share your favorite moments</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💬</div>
+                        <div class="feature-text">Stay connected with real-time updates</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section: Signup Form -->
+        <div class="form-section">
+            <div class="form-card">
+                <h1 class="form-title">Create Account</h1>
+                <p class="form-subtitle">Sign up to get started</p>
+
+<form id="signupForm">
+    <!-- Full Name -->
+    <div class="form-group">
+        <label for="name" class="form-label">Full Name</label>
+        <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            class="form-input" 
+            placeholder="Enter your full name"
+            required
+        >
+        <div class="error-message" id="nameError"></div>
+    </div>
+        <!-- Date of Birth -->
+    <div class="form-group">
+        <label for="dob" class="form-label">Date of Birth</label>
+        <input 
+            type="date" 
+            id="dob" 
+            name="dob" 
+            class="form-input"
+            required
+        >
+        <div class="error-message" id="dobError"></div>
+    </div>
+
+    <!-- Gender -->
+    <div class="form-group">
+        <label class="form-label">Gender</label>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <label>
+                <input type="radio" name="gender" value="male" required> Male
+            </label>
+            <label>
+                <input type="radio" name="gender" value="female" required> Female
+            </label>
+            <label>
+                <input type="radio" name="gender" value="custom" required> Custom
+            </label>
+        </div>
+        <div class="error-message" id="genderError"></div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+        <label for="email" class="form-label">Email Address</label>
+        <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-input" 
+            placeholder="Enter your email"
+            required
+        >
+        <div class="error-message" id="emailError"></div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="form-input" 
+            placeholder="Create a password"
+            required
+        >
+        <div class="error-message" id="passwordError"></div>
+    </div>
+
+
+
+    <!-- Submit Button -->
+    <button type="submit" class="signup-button">
+        <span>Sign Up</span>
+    </button>
+</form>
+
+
+                <div class="login-link">
+                    Already have an account? <a href="login.html">Log in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="./app.js"></script>
+</body>
+</html>

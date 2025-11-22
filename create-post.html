@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post - Social Connect</title>
+    <link rel="stylesheet" href="./create-post.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <!-- Desktop Layout -->
+            <div class="header-desktop" style="display: flex; align-items: center; width: 100%;">
+                <a href="feed.html" class="header-logo">Social Connect</a>
+                <div class="header-icons">
+                    <button class="icon-button" id="profileButton" aria-label="Profile">
+                        👤
+                    </button>
+                    <button class="icon-button" id="settingsButton" aria-label="Settings">
+                        ⚙️
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Layout -->
+            <div class="header-mobile">
+                <div class="header-top-row">
+                    <a href="feed.html" class="header-logo">Social Connect</a>
+                    <div class="header-icons">
+                        <button class="icon-button" id="profileButtonMobile" aria-label="Profile">
+                            👤
+                        </button>
+                        <button class="icon-button" id="settingsButtonMobile" aria-label="Settings">
+                            ⚙️
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Create Post Section -->
+        <div class="create-post-section">
+            <h1 class="form-title">Create Post</h1>
+            
+            <form id="createPostForm">
+                <div class="form-group">
+                    <label for="postText" class="form-label">What's on your mind?</label>
+                    <textarea 
+                        id="postText" 
+                        name="postText" 
+                        class="form-textarea" 
+                        placeholder="Share your thoughts..."
+                        required
+                    ></textarea>
+                    <div class="error-message" id="postTextError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageUrl" class="form-label">Image URL (Optional)</label>
+                    <input 
+                        type="url" 
+                        id="imageUrl" 
+                        name="imageUrl" 
+                        class="form-input" 
+                        placeholder="https://example.com/image.jpg"
+                    >
+                    <div class="error-message" id="imageUrlError"></div>
+                </div>
+
+                <div class="form-group emoji-picker-container">
+                    <label class="form-label">Add Emoji (Optional)</label>
+                    <div class="emoji-trigger" id="emojiTrigger">
+                        <span>Click to add emoji 😊</span>
+                        <span>▼</span>
+                    </div>
+                    <div class="emoji-picker" id="emojiPicker">
+                        <div class="emoji-grid" id="emojiGrid">
+                            <!-- Emojis will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="post-button" id="postButton">
+                    <span>Post</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Profile</h2>
+                <button class="close-button" id="closeProfileModal">×</button>
+            </div>
+            <div class="profile-content" id="profileContent">
+                <!-- Profile content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Settings</h2>
+                <button class="close-button" id="closeSettingsModal">×</button>
+            </div>
+            <div class="settings-content">
+                <div class="setting-item">
+                    <span class="setting-label">Dark Mode</span>
+                    <div class="toggle-switch" id="darkModeToggle"></div>
+                </div>
+                <div class="settings-buttons">
+                    <button class="settings-button" id="logoutButton">Logout</button>
+                    <button class="settings-button" id="switchAccountButton">Login With Another Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="./create-post.js"></script>
+</body>
+</html>
+
