@@ -563,6 +563,8 @@
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid var(--input-border);
+            width: 100%;
+            overflow-x: hidden;
         }
 
         .comments-title {
@@ -576,10 +578,13 @@
             display: flex;
             gap: 10px;
             margin-bottom: 15px;
+            flex-wrap: wrap;
+            width: 100%;
         }
 
         .comment-input {
             flex: 1;
+            min-width: 0;
             padding: 10px 15px;
             background: var(--input-bg);
             border: 2px solid var(--input-border);
@@ -591,6 +596,7 @@
             -webkit-backdrop-filter: blur(10px);
             outline: none;
             font-family: inherit;
+            box-sizing: border-box;
         }
 
         .comment-input::placeholder {
@@ -616,6 +622,8 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             white-space: nowrap;
+            flex-shrink: 0;
+            min-width: fit-content;
         }
 
         .comment-post-button:hover {
@@ -722,12 +730,15 @@
             padding: 40px;
             box-shadow: 0 8px 32px var(--shadow);
             border: 1px solid var(--input-border);
-            max-width: 500px;
+            max-width: min(90vw, 500px);
             width: 90%;
             max-height: 90vh;
             overflow-y: auto;
+            overflow-x: hidden;
             animation: slideIn 0.3s ease-out;
             position: relative;
+            margin: 10px;
+            box-sizing: border-box;
         }
 
         @keyframes slideIn {
@@ -746,17 +757,22 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
+            gap: 10px;
         }
 
         .modal-title {
             font-size: 2rem;
             font-weight: 700;
             color: var(--text-primary);
+            word-wrap: break-word;
+            flex: 1;
+            margin-right: 10px;
         }
 
         .close-button {
             width: 40px;
             height: 40px;
+            min-width: 40px;
             border-radius: 50%;
             background: var(--button-bg);
             border: 2px solid var(--input-border);
@@ -769,6 +785,7 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            flex-shrink: 0;
         }
 
         .close-button:hover {
@@ -778,6 +795,8 @@
 
         .profile-content {
             text-align: center;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         .profile-content .profile-section {
@@ -787,6 +806,8 @@
         .profile-pic-large {
             width: 120px;
             height: 120px;
+            max-width: min(30vw, 120px);
+            max-height: min(30vw, 120px);
             border-radius: 50%;
             background: var(--bg-secondary);
             display: flex;
@@ -795,6 +816,14 @@
             font-size: 3rem;
             border: 3px solid var(--input-border);
             margin: 0 auto 20px;
+            flex-shrink: 0;
+        }
+
+        .profile-pic-large img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         .profile-name {
@@ -802,12 +831,14 @@
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 10px;
+            word-wrap: break-word;
         }
 
         .profile-email {
             font-size: 1rem;
             color: var(--text-secondary);
             margin-bottom: 10px;
+            word-wrap: break-word;
         }
 
         .profile-info {
@@ -1340,42 +1371,160 @@
             }
 
             .modal-content {
-                padding: 30px 20px;
+                padding: 20px 15px;
+                width: calc(100% - 20px);
+                max-width: calc(100vw - 20px);
+                max-height: calc(100vh - 20px);
+                margin: 10px;
+                border-radius: 16px;
+            }
+
+            .modal-header {
+                margin-bottom: 15px;
+                gap: 8px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+                margin-right: 8px;
+            }
+
+            .close-button {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+                font-size: 1.3rem;
+            }
+
+            .profile-pic-large {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+
+            .profile-name {
+                font-size: 1.4rem;
+            }
+
+            .profile-email {
+                font-size: 0.9rem;
+            }
+
+            .profile-stats {
+                gap: 10px;
+                margin-top: 15px;
+                grid-template-columns: 1fr;
+            }
+
+            .stat-item {
+                padding: 15px;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .follow-stats {
+                grid-template-columns: 1fr;
             }
 
             .profile-section {
-                margin-top: 20px;
-                padding-top: 20px;
+                margin-top: 15px;
+                padding-top: 15px;
             }
 
             .profile-section-title {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                margin-bottom: 12px;
+            }
+
+            .profile-bio,
+            .profile-bio-textarea {
+                padding: 12px;
+                font-size: 0.85rem;
+                min-height: 70px;
+            }
+
+            .profile-bio-textarea {
+                min-height: 80px;
             }
 
             .profile-about-item {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 8px;
+                padding: 12px;
+            }
+
+            .profile-about-label {
+                font-size: 0.85rem;
             }
 
             .profile-about-input,
             .profile-about-select {
                 width: 100%;
                 max-width: 100%;
+                padding: 10px 12px;
+                font-size: 0.85rem;
             }
 
-            .profile-bio-textarea {
-                min-height: 80px;
-                font-size: 0.9rem;
+            .save-bio-button,
+            .save-about-button,
+            .change-pic-button {
+                padding: 10px 18px;
+                font-size: 0.85rem;
+            }
+
+            .profile-pic-upload-section {
+                padding: 12px;
+                margin-top: 12px;
+            }
+
+            .profile-pic-url-input {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+
+            .profile-pic-preview {
+                width: 80px;
+                height: 80px;
+            }
+
+            .follow-stats {
+                gap: 10px;
+                margin-top: 15px;
+            }
+
+            .follow-stat-item {
+                padding: 12px;
+            }
+
+            .follow-stat-value {
+                font-size: 1.3rem;
+            }
+
+            .follow-stat-label {
+                font-size: 0.8rem;
+            }
+
+            .follow-btn {
+                padding: 4px 12px;
+                font-size: 0.8rem;
             }
 
             .profile-posts-section {
-                margin-top: 20px;
-                padding-top: 20px;
+                margin-top: 15px;
+                padding-top: 15px;
             }
 
             .profile-posts-title {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                margin-bottom: 12px;
             }
 
             .profile-post-card {
@@ -1388,5 +1537,158 @@
 
             .profile-post-image {
                 max-height: 200px;
+            }
+
+            .settings-content {
+                gap: 15px;
+            }
+
+            .setting-item {
+                padding: 12px;
+                flex-wrap: wrap;
+            }
+
+            .setting-label {
+                font-size: 0.9rem;
+            }
+
+            .toggle-switch {
+                width: 50px;
+                height: 26px;
+            }
+
+            .toggle-switch::after {
+                width: 20px;
+                height: 20px;
+            }
+
+            .toggle-switch.active::after {
+                left: 26px;
+            }
+
+            .settings-button {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+
+            .comments-section {
+                margin-top: 12px;
+                padding-top: 12px;
+            }
+
+            .comments-title {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+            }
+
+            .comment-input-container {
+                gap: 8px;
+                margin-bottom: 12px;
+            }
+
+            .comment-input {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .comment-post-button {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .comment-item {
+                padding: 8px;
+                gap: 8px;
+            }
+
+            .comment-pic {
+                width: 28px;
+                height: 28px;
+                font-size: 0.8rem;
+            }
+
+            .comment-username {
+                font-size: 0.85rem;
+            }
+
+            .comment-text {
+                font-size: 0.85rem;
+            }
+
+            .comment-time {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Tablet and Medium Mobile (max-width: 768px) */
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 30px 20px;
+                width: calc(100% - 30px);
+                max-width: calc(100vw - 30px);
+                border-radius: 20px;
+            }
+
+            .modal-title {
+                font-size: 1.75rem;
+            }
+
+            .close-button {
+                width: 38px;
+                height: 38px;
+                min-width: 38px;
+                font-size: 1.4rem;
+            }
+
+            .profile-pic-large {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .profile-name {
+                font-size: 1.6rem;
+            }
+
+            .profile-email {
+                font-size: 0.95rem;
+            }
+
+            .profile-stats {
+                gap: 12px;
+            }
+
+            .stat-value {
+                font-size: 1.75rem;
+            }
+
+            .profile-section-title {
+                font-size: 1.15rem;
+            }
+
+            .profile-bio,
+            .profile-bio-textarea {
+                font-size: 0.9rem;
+            }
+
+            .comment-input-container {
+                gap: 8px;
+            }
+
+            .comment-input {
+                font-size: 0.88rem;
+            }
+
+            .comment-post-button {
+                padding: 9px 18px;
+                font-size: 0.88rem;
+            }
+
+            .settings-content {
+                gap: 18px;
+            }
+
+            .setting-item {
+                padding: 14px;
             }
         }

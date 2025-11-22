@@ -1,4 +1,3 @@
-
         // Theme Toggle Functionality (only in settings modal)
         const html = document.documentElement;
         const darkModeToggle = document.getElementById('darkModeToggle');
